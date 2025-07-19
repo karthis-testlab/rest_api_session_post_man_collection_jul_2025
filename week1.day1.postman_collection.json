@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "7339e82e-2ff1-4bd1-8f9b-c4086e9b708f",
+		"name": "week1.day1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28447185",
+		"_collection_link": "https://testleaf-4289.postman.co/workspace/REST_API_Session_Jul_2025~38051eef-6b80-4a98-bfe1-b21657c61065/collection/28447185-7339e82e-2ff1-4bd1-8f9b-c4086e9b708f?action=share&source=collection_link&creator=28447185"
+	},
+	"item": [
+		{
+			"name": "retrieves-all-records-from-incident-table-as-json",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "qy/Q6A=vOM3x",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev209663.service-now.com/api/now/table/incident",
+					"protocol": "https",
+					"host": [
+						"dev209663",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieves-all-records-from-incident-table-as-xml",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "qy/Q6A=vOM3x",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev209663.service-now.com/api/now/table/incident",
+					"protocol": "https",
+					"host": [
+						"dev209663",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieves-all-records-from-incident-table-path-variable",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "qy/Q6A=vOM3x",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev209663.service-now.com/api/now/table/:tableName",
+					"protocol": "https",
+					"host": [
+						"dev209663",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
