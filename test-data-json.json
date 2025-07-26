@@ -1,0 +1,18 @@
+[
+	{
+		"shortDescription": "RESTAPIJUL20251",
+		"description": "Create a new record using POST Method 1"
+	},
+	{
+		"shortDescription": "RESTAPIJUL20252",
+		"description": "Create a new record using POST Method 2"
+	},
+	{
+		"shortDescription": "RESTAPIJUL20253",
+		"description": "Create a new record using POST Method 3"
+	},
+	{
+		"shortDescription": "RESTAPIJUL20254",
+		"description": "Create a new record using POST Method 4"
+	}
+]

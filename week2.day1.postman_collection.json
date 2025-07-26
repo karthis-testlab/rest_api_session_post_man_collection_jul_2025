@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "841d88d4-4564-4462-833a-2a466b98ca5e",
+		"name": "week2.day1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28447185",
+		"_collection_link": "https://testleaf-4289.postman.co/workspace/38051eef-6b80-4a98-bfe1-b21657c61065/collection/28447185-841d88d4-4564-4462-833a-2a466b98ca5e?action=share&source=collection_link&creator=28447185"
+	},
+	"item": [
+		{
+			"name": "create-a-record",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"{{shortDescription}}\",\r\n    \"description\": \"{{description}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocal}}://{{hostname}}/{{path}}/{{tableName}}",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"{{path}}",
+						"{{tableName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-users-jira",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{protocal}}://{{dominName}}.atlassian.net/rest/api/3/users/search",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{dominName}}",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"users",
+						"search"
+					]
+				},
+				"description": "Generated from cURL: curl --request GET \\\r\n  --url 'https://your-domain.atlassian.net/rest/api/3/users/search' \\\r\n  --user 'email@example.com:<api_token>' \\\r\n  --header 'Accept: application/json'"
+			},
+			"response": []
+		},
+		{
+			"name": "get-a-user-jira",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{protocal}}://{{dominName}}.atlassian.net/rest/api/3/user?accountId=5b124c574bec0e53fdb545c0",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{dominName}}",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"user"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "5b124c574bec0e53fdb545c0"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl --request GET \\\r\n  --url 'https://your-domain.atlassian.net/rest/api/3/user?accountId=5b10ac8d82e05b22cc7d4ef5' \\\r\n  --user 'email@example.com:<api_token>' \\\r\n  --header 'Accept: application/json'"
+			},
+			"response": []
+		},
+		{
+			"name": "get-a-user-jira-email-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonRes = pm.response.json();\r",
+							"pm.collectionVariables.set(\"account_id\", jsonRes[0].accountId);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{protocal}}://{{dominName}}.atlassian.net/rest/api/3/user/search?query=karthike.selene@gmail.com",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{dominName}}",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"user",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "karthike.selene@gmail.com"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl --request GET \\\r\n  --url 'https://your-domain.atlassian.net/rest/api/3/user?accountId=5b10ac8d82e05b22cc7d4ef5' \\\r\n  --user 'email@example.com:<api_token>' \\\r\n  --header 'Accept: application/json'"
+			},
+			"response": []
+		},
+		{
+			"name": "create-a-project-jira",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"REST123\",\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"projectTypeKey\": \"software\",\r\n    \"projectTemplateKey\": \"com.pyxis.greenhopper.jira:gh-simplified-scrum-classic\",\r\n    \"leadAccountId\": \"{{account_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocal}}://{{dominName}}.atlassian.net/rest/api/3/project",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{dominName}}",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"project"
+					]
+				},
+				"description": "Generated from cURL: curl --request POST \\\r\n  --url 'https://your-domain.atlassian.net/rest/api/3/project' \\\r\n  --user 'email@example.com:<api_token>' \\\r\n  --header 'Accept: application/json' \\\r\n  --header 'Content-Type: application/json' \\\r\n  --data '{\r\n  \"assigneeType\": \"PROJECT_LEAD\",\r\n  \"avatarId\": 10200,\r\n  \"categoryId\": 10120,\r\n  \"description\": \"Cloud migration initiative\",\r\n  \"issueSecurityScheme\": 10001,\r\n  \"key\": \"EX\",\r\n  \"leadAccountId\": \"5b10a0effa615349cb016cd8\",\r\n  \"name\": \"Example\",\r\n  \"notificationScheme\": 10021,\r\n  \"permissionScheme\": 10011,\r\n  \"projectTemplateKey\": \"com.atlassian.jira-core-project-templates:jira-core-simplified-process-control\",\r\n  \"projectTypeKey\": \"business\",\r\n  \"url\": \"http://atlassian.com\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "get-a-project-jira",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://karthikeselene.atlassian.net/rest/api/3/project/10044",
+					"protocol": "https",
+					"host": [
+						"karthikeselene",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"project",
+						"10044"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-a-user-story-issue-jira",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{API_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailAddress}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"issuetype\": {\r\n            \"id\": \"10006\"\r\n        },\r\n        \"project\": {\r\n            \"id\": \"10044\"\r\n        },\r\n        \"summary\": \"Main order flow broken\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocal}}://{{dominName}}.atlassian.net/rest/api/3/issue",
+					"protocol": "{{protocal}}",
+					"host": [
+						"{{dominName}}",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue"
+					]
+				},
+				"description": "Generated from cURL: curl --request POST \\\r\n  --url 'https://your-domain.atlassian.net/rest/api/3/issue' \\\r\n  --user 'email@example.com:<api_token>' \\\r\n  --header 'Accept: application/json' \\\r\n  --header 'Content-Type: application/json' \\\r\n  --data '{\r\n  \"fields\": {\r\n    \"assignee\": {\r\n      \"id\": \"5b109f2e9729b51b54dc274d\"\r\n    },\r\n    \"components\": [\r\n      {\r\n        \"id\": \"10000\"\r\n      }\r\n    ],\r\n    \"customfield_10000\": \"09/Jun/19\",\r\n    \"customfield_20000\": \"06/Jul/19 3:25 PM\",\r\n    \"customfield_30000\": [\r\n      \"10000\",\r\n      \"10002\"\r\n    ],\r\n    \"customfield_40000\": {\r\n      \"content\": [\r\n        {\r\n          \"content\": [\r\n            {\r\n              \"text\": \"Occurs on all orders\",\r\n              \"type\": \"text\"\r\n            }\r\n          ],\r\n          \"type\": \"paragraph\"\r\n        }\r\n      ],\r\n      \"type\": \"doc\",\r\n      \"version\": 1\r\n    },\r\n    \"customfield_50000\": {\r\n      \"content\": [\r\n        {\r\n          \"content\": [\r\n            {\r\n              \"text\": \"Could impact day-to-day work.\",\r\n              \"type\": \"text\"\r\n            }\r\n          ],\r\n          \"type\": \"paragraph\"\r\n        }\r\n      ],\r\n      \"type\": \"doc\",\r\n      \"version\": 1\r\n    },\r\n    \"customfield_60000\": \"jira-software-users\",\r\n    \"customfield_70000\": [\r\n      \"jira-administrators\",\r\n      \"jira-software-users\"\r\n    ],\r\n    \"customfield_80000\": {\r\n      \"value\": \"red\"\r\n    },\r\n    \"description\": {\r\n      \"content\": [\r\n        {\r\n          \"content\": [\r\n            {\r\n              \"text\": \"Order entry fails when selecting supplier.\",\r\n              \"type\": \"text\"\r\n            }\r\n          ],\r\n          \"type\": \"paragraph\"\r\n        }\r\n      ],\r\n      \"type\": \"doc\",\r\n      \"version\": 1\r\n    },\r\n    \"duedate\": \"2019-05-11\",\r\n    \"environment\": {\r\n      \"content\": [\r\n        {\r\n          \"content\": [\r\n            {\r\n              \"text\": \"UAT\",\r\n              \"type\": \"text\"\r\n            }\r\n          ],\r\n          \"type\": \"paragraph\"\r\n        }\r\n      ],\r\n      \"type\": \"doc\",\r\n      \"version\": 1\r\n    },\r\n    \"fixVersions\": [\r\n      {\r\n        \"id\": \"10001\"\r\n      }\r\n    ],\r\n    \"issuetype\": {\r\n      \"id\": \"10000\"\r\n    },\r\n    \"labels\": [\r\n      \"bugfix\",\r\n      \"blitz_test\"\r\n    ],\r\n    \"parent\": {\r\n      \"key\": \"PROJ-123\"\r\n    },\r\n    \"priority\": {\r\n      \"id\": \"20000\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"10000\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"5b10a2844c20165700ede21g\"\r\n    },\r\n    \"security\": {\r\n      \"id\": \"10000\"\r\n    },\r\n    \"summary\": \"Main order flow broken\",\r\n    \"timetracking\": {\r\n      \"originalEstimate\": \"10\",\r\n      \"remainingEstimate\": \"5\"\r\n    },\r\n    \"versions\": [\r\n      {\r\n        \"id\": \"10000\"\r\n      }\r\n    ]\r\n  },\r\n  \"update\": {}\r\n}'"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "path",
+			"value": "api/now/table",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "tableName",
+			"value": "incident",
+			"type": "string"
+		},
+		{
+			"key": "account_id",
+			"value": ""
+		}
+	]
+}
