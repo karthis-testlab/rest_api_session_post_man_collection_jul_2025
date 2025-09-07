@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "972df013-fa15-4f89-aff1-9d70fce3d667",
+		"name": "petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2257080",
+		"_collection_link": "https://warped-zodiac-84258.postman.co/workspace/RESTAPIJul2025~7c43559e-eccb-4e0b-8f3f-23c7622808ff/collection/2257080-972df013-fa15-4f89-aff1-9d70fce3d667?action=share&source=collection_link&creator=2257080"
+	},
+	"item": [
+		{
+			"name": "get-all-available-pets",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "available"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-new-pet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"German Shepred\",\r\n    \"photoUrls\":[\r\n        \"photo1.png\",\r\n        \"photo2.png\"\r\n    ],\r\n    \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

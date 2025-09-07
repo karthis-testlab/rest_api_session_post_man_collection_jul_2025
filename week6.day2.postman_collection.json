@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "b6d81dc0-7727-48f9-9bc1-1b15e72a0a93",
+		"name": "week6.day2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2257080",
+		"_collection_link": "https://warped-zodiac-84258.postman.co/workspace/RESTAPIJul2025~7c43559e-eccb-4e0b-8f3f-23c7622808ff/collection/2257080-b6d81dc0-7727-48f9-9bc1-1b15e72a0a93?action=share&source=collection_link&creator=2257080"
+	},
+	"item": [
+		{
+			"name": "create-oauth-token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "0a446b3d4a7ba210f9ba594eca6bf952",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "20d0nUC4px",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "dLS9Qgs=V!0n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev214352.service-now.com/oauth_token.do",
+					"protocol": "https",
+					"host": [
+						"dev214352",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"oauth_token.do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-oauth-token-by-refresh-token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "0a446b3d4a7ba210f9ba594eca6bf952",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "20d0nUC4px",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "D9uUnh_45-UtxbRM-o_hkwWLINfRCKGysMQxPoewVA2ERU5_SrYl8Lzh1QjvvgKkIQqJCpySrQXXbIaL5hlcxw",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev214352.service-now.com/oauth_token.do",
+					"protocol": "https",
+					"host": [
+						"dev214352",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"oauth_token.do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieves-all-records-from-incident-table-as-json Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4QCBcDGl2YZ1X7NNia9IlCsecVeTjwh4OLketNDW7u8DG-8L0GS5Vy1urk8Kc-Nt9WEInyhqAuaml5HGjCelgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev214352.service-now.com/api/now/table/incident",
+					"protocol": "https",
+					"host": [
+						"dev214352",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

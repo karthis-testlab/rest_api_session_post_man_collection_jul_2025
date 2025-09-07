@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "de04568a-da13-4967-973a-a9707f40b173",
+		"name": "Github-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2257080",
+		"_collection_link": "https://warped-zodiac-84258.postman.co/workspace/RESTAPIJul2025~7c43559e-eccb-4e0b-8f3f-23c7622808ff/collection/2257080-de04568a-da13-4967-973a-a9707f40b173?action=share&source=collection_link&creator=2257080"
+	},
+	"item": [
+		{
+			"name": "https://api.github.com/graphql",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    viewer {\r\n    login\r\n    name\r\n    avatarUrl\r\n    company\r\n    repositories {            \r\n      totalCount\r\n      totalDiskUsage\r\n    }\r\n    followers {\r\n      totalCount      \r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/graphql",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.github.com/users/karthis-testlab",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/karthis-testlab",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"karthis-testlab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.github.com/users/karthis-testlab/followers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/karthis-testlab/followers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"karthis-testlab",
+						"followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.github.com/users/karthis-testlab/repos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/karthis-testlab/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"karthis-testlab",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
